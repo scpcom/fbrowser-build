@@ -1,0 +1,27 @@
+diff --git a/mainwindow.cpp b/mainwindow.cpp
+index 5e560fa..301a06b 100644
+--- a/mainwindow.cpp
++++ b/mainwindow.cpp
+@@ -3,10 +3,12 @@
+ #include <QApplication>
+ #include <QDir>
+ #include <QFile>
++#include <QGuiApplication>
+ #include <QJsonArray>
+ #include <QJsonDocument>
+ #include <QJsonObject>
+ #include <QNetworkProxy>
++#include <QScreen>
+ #include <QTimer>
+ #include <QWebSocket>
+ #include <QWebSocketServer>
+@@ -91,6 +93,9 @@ MainWindow::MainWindow()
+   // Set window size
+   if (optWidth) {
+       resize(optWidth, optHeight);
++  } else {
++      QRect screenGeometry = QGuiApplication::screens().first()->availableGeometry();
++      resize(screenGeometry.width(), screenGeometry.height());
+   }
+ 
+   // Make our window full-screen

@@ -1,1 +1,31 @@
 #!/bin/sh
+fbroot=Rootfs/FB
+clocksize=400
+
+git apply ../patch/fbrowser-maximized.patch
+
+# run on fb
+sed -i 's|./FBrowser|QT_QPA_PLATFORM=linuxfb ./FBrowser|g' ${fbroot}/autorun.sh
+# run on fb with touchscreen (not working with fts)
+#sed -i 's|./FBrowser|QT_QPA_PLATFORM=linuxfb QT_QPA_EVDEV_TOUCHSCREEN_PARAMETERS=/dev/input/touchscreen ./FBrowser|g' ${fbroot}/autorun.sh
+# run on X11/xcb
+#sed -i 's|./FBrowser|/usr/bin/xinit /usr/bin/dbus-launch --exit-with-session ./FBrowser -- :0 -nolisten tcp vt7|g' ${fbroot}/autorun.sh
+
+# set fixed window size
+#sed -i s/'"width": 0,'/'"width": 480,'/g ${fbroot}/config.json
+#sed -i s/'"height": 0,'/'"height": 424,'/g ${fbroot}/config.json
+
+# set clock size to 400x400
+clocks1=${clocksize}
+clocks2=`expr ${clocks1} / 2`
+clocks3=`expr ${clocks2} / 2`
+clocks4=`expr ${clocks3} / 2`
+clocks5=`expr ${clocks3} / 5`
+clocks6=`expr ${clocks2} - ${clocks5}`
+sed -i s/'=200'/'='${clocks1}/g ${fbroot}/www/index.html
+sed -i s/'"100"'/'"'${clocks2}'"'/g ${fbroot}/www/index.html
+sed -i s/'100, 100'/${clocks2}', '${clocks2}/g ${fbroot}/www/index.html
+sed -i s/'"90"'/'"'${clocks6}'"'/g ${fbroot}/www/index.html
+sed -i s/'"50"'/'"'${clocks3}'"'/g ${fbroot}/www/index.html
+sed -i s/'"25"'/'"'${clocks4}'"'/g ${fbroot}/www/index.html
+sed -i s/'"10"'/'"'${clocks5}'"'/g ${fbroot}/www/index.html
