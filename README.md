@@ -6,7 +6,7 @@ Build FBrowser for Debian.
 Install prerequisites
 ---------------------
 
-Cross toolchain
+Cross toolchain (optional, better build on riscv64 chroot or target host)
 
     sudo dpkg --add-architecture riscv64
     sudo apt-get update
