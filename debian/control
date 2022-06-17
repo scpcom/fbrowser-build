@@ -8,7 +8,7 @@ Standards-Version: 3.9.4.0
 Homepage: https://www.kernel.org/
 
 Package: fbrowser
-Architecture: riscv64
+Architecture: any
 Section: debian-installer
 Priority: standard
 Description: FBrowser for Debian

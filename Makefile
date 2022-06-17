@@ -5,13 +5,6 @@ TAG=2022.01
 TAGPREFIX=v
 REVISION=002
 
-MK_ARCH="${shell uname -m}"
-ifneq ("rv64gc", $(MK_ARCH))
-	export ARCH=riscv
-	export CROSS_COMPILE=riscv64-linux-gnu-
-endif
-undefine MK_ARCH
-
 export LOCALVERSION:=-R$(REVISION)
 
 all:
