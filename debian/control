@@ -1,0 +1,15 @@
+Source: fbrowser
+Section: kernel
+Priority: optional
+Maintainer: BSP <developer@build.local>
+Build-Depends: cmake, debhelper, git,
+ qtbase5-dev, libqt5webkit5-dev, libqt5websockets5-dev
+Standards-Version: 3.9.4.0
+Homepage: https://www.kernel.org/
+
+Package: fbrowser
+Architecture: riscv64
+Section: debian-installer
+Priority: standard
+Description: FBrowser for Debian
+ This package contains the fbrowser for Debian.

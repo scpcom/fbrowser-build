@@ -1,0 +1,13 @@
+# ignore kernel source
+tar-ignore = "denx*"
+tar-ignore = "sunxi*"
+tar-ignore = "sunxi-tools*"
+# ignore git related files
+tar-ignore = ".git*"
+# ignore log file
+tar-ignore = "job.log"
+# ignore last build
+tar-ignore = "debian/fbrowser"
+tar-ignore = "FBrowser"
+tar-ignore = "foo"
+tar-ignore = "ipxe"

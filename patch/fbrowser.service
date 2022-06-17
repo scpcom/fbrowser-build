@@ -1,0 +1,15 @@
+[Unit]
+Description = fbrowser using fb
+Requires = dbus.service
+After = systemd-user-sessions.service sound.target network-online.target
+
+[Service]
+#User = pi
+#Group = pi
+Type = simple
+PAMName=login
+ExecStart = /FB/autorun.sh
+Restart = on-abort
+
+[Install]
+WantedBy = multi-user.target

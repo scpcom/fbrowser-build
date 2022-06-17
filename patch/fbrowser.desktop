@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=FBrowser
+Comment=FBrowser
+Exec=/FB/FBrowser
+Path=/FB
+Icon=org.gnome.Epiphany
+Type=Application
